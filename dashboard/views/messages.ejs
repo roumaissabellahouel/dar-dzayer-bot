@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dar Dzayer — Messages</title>
+  <%- include('_style') %>
+</head>
+<body>
+  <%- include('_nav', { page: 'messages' }) %>
+  <main>
+    <p class="page-title">💬 Messages clients</p>
+
+    <div class="card">
+      <div class="card-title">🔴 En attente</div>
+      <% const enAttente = messages.filter(m => m.statut === 'en_attente') %>
+      <% if (enAttente.length === 0) { %>
+        <p class="empty">Aucun message en attente ✅</p>
+      <% } else { %>
+        <table>
+          <thead>
+            <tr><th>#</th><th>Téléphone</th><th>Message</th><th>Type</th><th>Date</th><th>Action</th></tr>
+          </thead>
+          <tbody>
+            <% enAttente.forEach(m => { %>
+            <tr>
+              <td style="color:#aaa">#<%= m.id %></td>
+              <td style="white-space:nowrap"><%= m.telephone.replace('@c.us','') %></td>
+              <td style="max-width:320px"><%= m.message %></td>
+              <td><span class="raison-tag"><%= m.raison %></span></td>
+              <td style="color:#aaa;white-space:nowrap;font-size:12px"><%= new Date(m.created_at).toLocaleString('fr-DZ') %></td>
+              <td>
+                <form method="POST" action="/messages/<%= m.id %>/traiter">
+                  <button type="submit" class="btn btn-primary">Marquer traité</button>
+                </form>
+              </td>
+            </tr>
+            <% }) %>
+          </tbody>
+        </table>
+      <% } %>
+    </div>
+
+    <% const traites = messages.filter(m => m.statut !== 'en_attente') %>
+    <% if (traites.length > 0) { %>
+    <div class="card">
+      <div class="card-title">✅ Traités (<%= traites.length %>)</div>
+      <table>
+        <thead>
+          <tr><th>#</th><th>Téléphone</th><th>Message</th><th>Type</th><th>Date</th></tr>
+        </thead>
+        <tbody>
+          <% traites.forEach(m => { %>
+          <tr style="opacity:0.5">
+            <td style="color:#aaa">#<%= m.id %></td>
+            <td><%= m.telephone.replace('@c.us','') %></td>
+            <td style="max-width:320px"><%= m.message %></td>
+            <td><span class="raison-tag"><%= m.raison %></span></td>
+            <td style="color:#aaa;font-size:12px"><%= new Date(m.created_at).toLocaleString('fr-DZ') %></td>
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+    <% } %>
+  </main>
+</body>
+</html>

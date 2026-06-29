@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dar Dzayer — Réservations</title>
+  <%- include('_style') %>
+</head>
+<body>
+  <%- include('_nav', { page: 'reservations' }) %>
+  <main>
+    <p class="page-title">📅 Réservations</p>
+
+    <form class="date-picker" method="GET" action="/reservations">
+      <input type="date" name="date" value="<%= date %>" />
+      <button type="submit" class="btn btn-primary">Voir</button>
+    </form>
+
+    <div class="card">
+      <div class="card-title">
+        <%= reservations.length %> réservation(s) — <%= new Date(date + 'T12:00:00').toLocaleDateString('fr-DZ', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' }) %>
+      </div>
+      <% if (reservations.length === 0) { %>
+        <p class="empty">Aucune réservation pour cette date</p>
+      <% } else { %>
+        <table>
+          <thead>
+            <tr>
+              <th>#</th><th>Client</th><th>Téléphone</th><th>Heure</th><th>Pers.</th><th>Table</th><th>Statut</th><th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% reservations.forEach(r => { %>
+            <tr>
+              <td style="color:#aaa">#<%= r.id %></td>
+              <td><strong><%= r.client_nom %></strong></td>
+              <td><%= r.client_telephone.replace('@c.us','') %></td>
+              <td><%= r.heure_debut %> – <%= r.heure_fin %></td>
+              <td><%= r.nombre_personnes %></td>
+              <td><span class="badge badge-green"><%= r.table_id %></span></td>
+              <td>
+                <% if (r.statut === 'confirmee') { %>
+                  <span class="badge badge-green">Confirmée</span>
+                <% } else if (r.statut === 'annulee') { %>
+                  <span class="badge badge-red">Annulée</span>
+                <% } else { %>
+                  <span class="badge badge-gray"><%= r.statut %></span>
+                <% } %>
+              </td>
+              <td>
+                <% if (r.statut === 'confirmee') { %>
+                <form method="POST" action="/reservations/<%= r.id %>/annuler" style="display:inline"
+                  onsubmit="return confirm('Annuler cette réservation ?')">
+                  <button type="submit" class="btn btn-danger">Annuler</button>
+                </form>
+                <% } else { %>—<% } %>
+              </td>
+            </tr>
+            <% }) %>
+          </tbody>
+        </table>
+      <% } %>
+    </div>
+  </main>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f4f0; color: #1a1a1a; min-height: 100vh; }
+
+  header {
+    background: #1c1c1c; color: #fff; padding: 0 24px;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 60px; position: sticky; top: 0; z-index: 10;
+  }
+  header h1 { font-size: 18px; font-weight: 700; }
+  header span { font-size: 12px; color: #c8a96e; font-weight: 500; text-transform: uppercase; letter-spacing: 1px; }
+
+  nav { background: #fff; border-bottom: 1px solid #e8e4de; padding: 0 24px; display: flex; gap: 4px; }
+  nav a { display: inline-block; padding: 14px 18px; font-size: 14px; font-weight: 500; color: #666; text-decoration: none; border-bottom: 2px solid transparent; }
+  nav a:hover { color: #1a1a1a; }
+  nav a.active { color: #c8a96e; border-bottom-color: #c8a96e; }
+
+  main { max-width: 1100px; margin: 0 auto; padding: 28px 20px; }
+  .page-title { font-size: 22px; font-weight: 700; margin-bottom: 24px; }
+
+  .card { background: #fff; border-radius: 10px; border: 1px solid #e8e4de; padding: 20px 24px; margin-bottom: 20px; }
+  .card-title { font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.8px; color: #999; margin-bottom: 16px; }
+
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-bottom: 24px; }
+  .stat { background: #fff; border-radius: 10px; border: 1px solid #e8e4de; padding: 20px 24px; }
+  .stat .num { font-size: 36px; font-weight: 800; color: #1a1a1a; line-height: 1; }
+  .stat .label { font-size: 13px; color: #888; margin-top: 6px; }
+  .stat.accent .num { color: #c8a96e; }
+  .stat.alert .num { color: #e05a3a; }
+
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th { text-align: left; padding: 10px 12px; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.6px; color: #999; border-bottom: 1px solid #f0ede8; }
+  td { padding: 12px; border-bottom: 1px solid #f5f4f0; color: #333; vertical-align: middle; }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: #faf9f7; }
+
+  .badge { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: 12px; font-weight: 600; }
+  .badge-green  { background: #e6f4ea; color: #2d7a3a; }
+  .badge-red    { background: #fdecea; color: #c0392b; }
+  .badge-gray   { background: #f0f0f0; color: #666; }
+
+  .btn { display: inline-block; padding: 6px 14px; border-radius: 6px; font-size: 13px; font-weight: 600; cursor: pointer; border: none; font-family: inherit; }
+  .btn-primary { background: #c8a96e; color: #fff; }
+  .btn-danger  { background: #fdecea; color: #c0392b; }
+
+  .empty { text-align: center; padding: 40px; color: #aaa; font-size: 15px; }
+
+  .date-picker { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+  .date-picker input[type="date"] { padding: 8px 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 14px; font-family: inherit; }
+
+  .raison-tag { font-size: 11px; padding: 2px 8px; border-radius: 4px; font-weight: 600; background: #f0ede8; color: #555; }
+
+  @media (max-width: 640px) {
+    main { padding: 20px 12px; }
+    .stats { grid-template-columns: repeat(2, 1fr); }
+    td, th { padding: 8px 6px; font-size: 13px; }
+  }
+</style>

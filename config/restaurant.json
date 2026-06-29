@@ -1,0 +1,72 @@
+{
+  "nom": "Dar Dzayer",
+  "ville": "Oran",
+  "adresse": "12 Rue Larbi Ben M'hidi, Oran",
+  "telephone_gerant": "+213550000000",
+  "numero_whatsapp_bot": "+213550000001",
+  "ton_de_reponse": "chaleureux et professionnel, quelques emojis discrets",
+
+  "horaires": {
+    "lundi": "12:00-15:00, 19:00-23:00",
+    "mardi": "12:00-15:00, 19:00-23:00",
+    "mercredi": "12:00-15:00, 19:00-23:00",
+    "jeudi": "12:00-15:00, 19:00-23:00",
+    "vendredi": "12:00-16:00, 19:00-23:30",
+    "samedi": "12:00-16:00, 19:00-23:30",
+    "dimanche": "fermé"
+  },
+
+  "menu": [
+    { "plat": "Couscous royal", "prix_dzd": 1200, "disponible": "tous les jours" },
+    { "plat": "Couscous au poulet", "prix_dzd": 900, "disponible": "tous les jours" },
+    { "plat": "Chorba frik", "prix_dzd": 400, "disponible": "tous les jours" },
+    { "plat": "Méchoui (portion)", "prix_dzd": 1800, "disponible": "vendredi et samedi uniquement" },
+    { "plat": "Rechta", "prix_dzd": 1000, "disponible": "vendredi uniquement" },
+    { "plat": "Tajine zitoune", "prix_dzd": 1100, "disponible": "tous les jours" },
+    { "plat": "Pâtisseries traditionnelles (assortiment)", "prix_dzd": 600, "disponible": "tous les jours" },
+    { "plat": "Boisson (jus/soda)", "prix_dzd": 150, "disponible": "tous les jours" }
+  ],
+
+  "menu_groupe": {
+    "description": "Menu spécial à partir de 8 personnes, sur réservation 24h à l'avance",
+    "prix_par_personne_dzd": 1500,
+    "contenu": "Entrée + plat au choix (couscous ou méchoui) + dessert + boisson"
+  },
+
+  "livraison": {
+    "disponible": true,
+    "zones": [
+      { "zone": "Oran centre", "frais_dzd": 200, "delai_min": 30 },
+      { "zone": "Bir El Djir", "frais_dzd": 350, "delai_min": 45 },
+      { "zone": "Es Senia", "frais_dzd": 400, "delai_min": 50 },
+      { "zone": "Sidi Bel Abbes (hors zone habituelle)", "frais_dzd": null, "delai_min": null, "note": "non couvert, à transférer au gérant" }
+    ],
+    "minimum_commande_dzd": 800
+  },
+
+  "tables": [
+    { "id": "T1", "capacite": 2 },
+    { "id": "T2", "capacite": 2 },
+    { "id": "T3", "capacite": 4 },
+    { "id": "T4", "capacite": 4 },
+    { "id": "T5", "capacite": 6 },
+    { "id": "T6", "capacite": 8 },
+    { "id": "T7", "capacite": 10 }
+  ],
+
+  "politique_reservation": {
+    "delai_min_avant_reservation_minutes": 60,
+    "duree_occupation_table_minutes": 90,
+    "annulation": "Merci de prévenir au moins 2h avant en cas d'annulation",
+    "evenement_special": "Pour mariages, anniversaires ou privatisation, transférer systématiquement au gérant"
+  },
+
+  "mots_cles_faq": {
+    "horaires":    ["horaire", "ouvert", "ferme", "fermé", "ouverture"],
+    "menu":        ["menu", "carte", "prix", "tarif", "plat"],
+    "livraison":   ["livraison", "livrer", "livre", "delivery"],
+    "reservation": ["reserver", "réserver", "reservation", "réservation", "table"],
+    "evenement":   ["mariage", "anniversaire", "privatiser", "privatisation", "evenement", "événement"],
+    "reclamation": ["problème", "probleme", "reclamation", "réclamation", "plainte", "insatisfait", "pas content", "déçu", "decu", "remboursement", "mauvais service", "jamais plus", "scandaleux"]
+  }
+}
